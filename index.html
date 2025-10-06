@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilube-C Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Ilube-C</h1>
+            <p class="subtitle">Software Developer & Research Portfolio</p>
+
+            <div class="controls">
+                <label for="viewSelect">View by:</label>
+                <select id="viewSelect">
+                    <option value="chronological">Chronological (Newest First)</option>
+                    <option value="chronological-old">Chronological (Oldest First)</option>
+                    <option value="topics">Grouped by Topics</option>
+                    <option value="language">Grouped by Language</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="projectsContainer"></div>
+    </main>
+
+    <script src="script.js?v=7"></script>
+</body>
+</html>

@@ -86,6 +86,17 @@ const projects = [
         updated: "2023-11-12",
         url: "https://github.com/Ilube-C/London-Strategic-Consulting",
         topics: ["Consulting", "Data Analysis", "Research"],
+        image: "https://raw.githubusercontent.com/Ilube-C/London-Strategic-Consulting/main/Graphs/Figure.png"
+    },
+    {
+        name: "Student-grades-data-project",
+        title: "Student Grades Data Project",
+        description: "Data analysis project examining student performance and academic outcomes through statistical modeling.",
+        language: "Python",
+        created: "2023-11-01",
+        updated: "2023-11-08",
+        url: "https://github.com/Ilube-C/Student-grades-data-project",
+        topics: ["Data Analysis", "Education", "Statistics"],
         image: "images/Student grades data 3d.webp"
     },
     {

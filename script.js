@@ -167,8 +167,7 @@ function renderProjects(viewType) {
     let html = '';
 
     if (viewType === 'chronological') {
-        const sorted = [...projects].sort((a, b) => new Date(b.created) - new Date(a.created));
-        html = '<div class="projects-grid">' + sorted.map(createProjectCard).join('') + '</div>';
+        html = '<div class="projects-grid">' + projects.map(createProjectCard).join('') + '</div>';
     }
     else if (viewType === 'topics') {
         const topicOrder = ['NLP', 'ML', 'Visualisation', 'Other'];

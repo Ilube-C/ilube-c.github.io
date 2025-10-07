@@ -23,17 +23,6 @@ const projects = [
         image: "🤖"
     },
     {
-        name: "Chess-Variant-AI",
-        title: "Chess Variant AI",
-        description: "Artificial intelligence system designed to play and analyze chess variants using advanced algorithms.",
-        language: "Python",
-        created: "2023-07-04",
-        updated: "2025-06-29",
-        url: "https://github.com/Ilube-C/Chess-Variant-AI",
-        topics: ["AI"],
-        image: "images/Chess Variant AI.webp"
-    },
-    {
         name: "ESGD",
         title: "Evolutionary Stochastic Gradient Descent",
         description: "An implementation and tutorial of Evolutionary Stochastic Gradient Descent optimization algorithm.",
@@ -43,50 +32,6 @@ const projects = [
         url: "https://github.com/Ilube-C/ESGD",
         topics: ["ML"],
         image: "images/ESGD.png"
-    },
-    {
-        name: "Student-grades-data-project",
-        title: "Student Grades Data Project",
-        description: "Data analysis project examining student performance and academic outcomes through statistical modeling.",
-        language: "Python",
-        created: "2023-11-01",
-        updated: "2023-11-08",
-        url: "https://github.com/Ilube-C/Student-grades-data-project",
-        topics: ["Visualisation"],
-        image: "images/Student grades data 3d.webp"
-    },
-    {
-        name: "Pride-and-Prejudice-NLP",
-        title: "Pride and Prejudice NLP Analysis",
-        description: "Natural Language Processing analysis of Jane Austen's Pride and Prejudice, exploring linguistic patterns and character interactions.",
-        language: "Python",
-        created: "2024-02-01",
-        updated: "2024-02-01",
-        url: "https://github.com/Ilube-C/Pride-and-Prejudice-NLP",
-        topics: ["NLP", "Visualisation"],
-        image: "images/Pride and Prejudice Sentiment.webp"
-    },
-    {
-        name: "London-Strategic-Consulting",
-        title: "London Strategic Consulting",
-        description: "My contributions as a technical consultant for a client in need of content creation research",
-        language: "Python",
-        created: "2023-11-05",
-        updated: "2023-11-12",
-        url: "https://github.com/Ilube-C/London-Strategic-Consulting",
-        topics: ["Consulting"],
-        image: "https://raw.githubusercontent.com/Ilube-C/London-Strategic-Consulting/main/Graphs/Figure.png"
-    },
-    {
-        name: "The-Latin-Programme-Consultancy-project",
-        title: "The Latin Programme Consultancy",
-        description: "Research I did for the charity I volunteer at which aims to demonstrate the positive effect studying Latin has on general academic attainment.",
-        language: "Python",
-        created: "2023-09-15",
-        updated: "2023-09-22",
-        url: "https://github.com/Ilube-C/The-Latin-Programme-Consultancy-project",
-        topics: ["Consulting"],
-        image: "images/Boxplot regression Latin programme.webp"
     },
     {
         name: "Decline-of-the-Roman-Senate-with-NLP",
@@ -111,6 +56,17 @@ const projects = [
         image: "images/sentiment viz.webp"
     },
     {
+        name: "Pride-and-Prejudice-NLP",
+        title: "Pride and Prejudice NLP Analysis",
+        description: "Natural Language Processing analysis of Jane Austen's Pride and Prejudice, exploring linguistic patterns and character interactions.",
+        language: "Python",
+        created: "2024-02-01",
+        updated: "2024-02-01",
+        url: "https://github.com/Ilube-C/Pride-and-Prejudice-NLP",
+        topics: ["NLP", "Visualisation"],
+        image: "images/Pride and Prejudice Sentiment.webp"
+    },
+    {
         name: "Predicting-HLMI-with-GTC",
         title: "Predicting HLMI with Game Theory Complexity",
         description: "By observing the trend over time of AI surpassing peak human performance at games of increasing Game Tree Complexity, I try to predict when Human Level Machine Intelligence will be achieved.",
@@ -120,6 +76,50 @@ const projects = [
         url: "https://github.com/Ilube-C/Predicting-HLMI-with-GTC",
         topics: ["AI"],
         image: "images/GTC.webp"
+    },
+    {
+        name: "London-Strategic-Consulting",
+        title: "London Strategic Consulting",
+        description: "My contributions as a technical consultant for a client in need of content creation research",
+        language: "Python",
+        created: "2023-11-05",
+        updated: "2023-11-12",
+        url: "https://github.com/Ilube-C/London-Strategic-Consulting",
+        topics: ["Consulting"],
+        image: "https://raw.githubusercontent.com/Ilube-C/London-Strategic-Consulting/main/Graphs/Figure.png"
+    },
+    {
+        name: "Student-grades-data-project",
+        title: "Student Grades Data Project",
+        description: "Data analysis project examining student performance and academic outcomes through statistical modeling.",
+        language: "Python",
+        created: "2023-11-01",
+        updated: "2023-11-08",
+        url: "https://github.com/Ilube-C/Student-grades-data-project",
+        topics: ["Visualisation"],
+        image: "images/Student grades data 3d.webp"
+    },
+    {
+        name: "The-Latin-Programme-Consultancy-project",
+        title: "The Latin Programme Consultancy",
+        description: "Research I did for the charity I volunteer at which aims to demonstrate the positive effect studying Latin has on general academic attainment.",
+        language: "Python",
+        created: "2023-09-15",
+        updated: "2023-09-22",
+        url: "https://github.com/Ilube-C/The-Latin-Programme-Consultancy-project",
+        topics: ["Consulting"],
+        image: "images/Boxplot regression Latin programme.webp"
+    },
+    {
+        name: "Chess-Variant-AI",
+        title: "Chess Variant AI",
+        description: "Artificial intelligence system designed to play and analyze chess variants using advanced algorithms.",
+        language: "Python",
+        created: "2023-07-04",
+        updated: "2025-06-29",
+        url: "https://github.com/Ilube-C/Chess-Variant-AI",
+        topics: ["AI"],
+        image: "images/Chess Variant AI.webp"
     }
 ];
 

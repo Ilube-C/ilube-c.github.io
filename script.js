@@ -155,6 +155,7 @@ function createProjectCard(project) {
             <div class="project-meta">
                 ${project.language ? `<span class="language-tag">${project.language}</span>` : ''}
                 <span class="date-tag">Created: ${new Date(project.created).toLocaleDateString()}</span>
+                <span class="date-tag">Updated: ${new Date(project.updated).toLocaleDateString()}</span>
             </div>
             <a href="${project.url}" target="_blank" class="project-link">View on GitHub →</a>
         </div>

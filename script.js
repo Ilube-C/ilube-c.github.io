@@ -19,7 +19,7 @@ const projects = [
         created: "2025-07-21",
         updated: "2025-07-21",
         url: "https://github.com/Ilube-C/agenticenv",
-        topics: ["ML"],
+        topics: ["AI"],
         image: "🤖"
     },
     {
@@ -30,7 +30,7 @@ const projects = [
         created: "2023-07-04",
         updated: "2025-06-29",
         url: "https://github.com/Ilube-C/Chess-Variant-AI",
-        topics: ["ML"],
+        topics: ["AI"],
         image: "images/Chess Variant AI.webp"
     },
     {
@@ -74,7 +74,7 @@ const projects = [
         created: "2023-11-05",
         updated: "2023-11-12",
         url: "https://github.com/Ilube-C/London-Strategic-Consulting",
-        topics: ["Other"],
+        topics: ["Consulting"],
         image: "https://raw.githubusercontent.com/Ilube-C/London-Strategic-Consulting/main/Graphs/Figure.png"
     },
     {
@@ -85,7 +85,7 @@ const projects = [
         created: "2023-09-15",
         updated: "2023-09-22",
         url: "https://github.com/Ilube-C/The-Latin-Programme-Consultancy-project",
-        topics: ["Other"],
+        topics: ["Consulting"],
         image: "images/Boxplot regression Latin programme.webp"
     },
     {
@@ -118,7 +118,7 @@ const projects = [
         created: "2024-01-10",
         updated: "2024-01-15",
         url: "https://github.com/Ilube-C/Predicting-HLMI-with-GTC",
-        topics: ["ML"],
+        topics: ["AI"],
         image: "images/GTC.webp"
     }
 ];
@@ -170,7 +170,7 @@ function renderProjects(viewType) {
         html = '<div class="projects-grid">' + projects.map(createProjectCard).join('') + '</div>';
     }
     else if (viewType === 'topics') {
-        const topicOrder = ['NLP', 'ML', 'Visualisation', 'Other'];
+        const topicOrder = ['NLP', 'ML', 'AI', 'Visualisation', 'Consulting'];
         const groups = groupByTopics(projects);
         topicOrder.forEach(topic => {
             if (groups[topic]) {

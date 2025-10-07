@@ -109,6 +109,17 @@ const projects = [
         url: "https://github.com/Ilube-C/The-Latin-Programme-Consultancy-project",
         topics: ["Education Research", "Data Analysis", "Consulting"],
         image: "images/Boxplot regression Latin programme.webp"
+    },
+    {
+        name: "Pride-and-Prejudice-NLP",
+        title: "Pride and Prejudice NLP Analysis",
+        description: "Natural Language Processing analysis of Jane Austen's Pride and Prejudice, exploring linguistic patterns and character interactions.",
+        language: "Python",
+        created: "2024-02-01",
+        updated: "2024-02-01",
+        url: "https://github.com/Ilube-C/Pride-and-Prejudice-NLP",
+        topics: ["NLP", "Literature Analysis", "Data Analysis"],
+        image: "images/Pride and Prejudice Sentiment.webp"
     }
 ];
 

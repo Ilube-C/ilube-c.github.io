@@ -8,7 +8,7 @@ const projects = [
         created: "2025-09-13",
         updated: "2025-09-20",
         url: "https://github.com/Ilube-C/Can-SAEs-disentangle-superposed-features",
-        topics: ["AI", "Machine Learning", "Research"],
+        topics: ["ML"],
         image: "images/3d_geometry_8_3_8_s0.86_uniform.png"
     },
     {
@@ -19,7 +19,7 @@ const projects = [
         created: "2025-07-21",
         updated: "2025-07-21",
         url: "https://github.com/Ilube-C/agenticenv",
-        topics: ["AI", "Multi-Agent Systems"],
+        topics: ["ML"],
         image: "🤖"
     },
     {
@@ -30,7 +30,7 @@ const projects = [
         created: "2023-07-04",
         updated: "2025-06-29",
         url: "https://github.com/Ilube-C/Chess-Variant-AI",
-        topics: ["AI", "Games", "Chess"],
+        topics: ["ML"],
         image: "images/Chess Variant AI.webp"
     },
     {
@@ -41,7 +41,7 @@ const projects = [
         created: "2025-06-29",
         updated: "2025-06-29",
         url: "https://github.com/Ilube-C/ESGD",
-        topics: ["Machine Learning", "Optimization"],
+        topics: ["ML"],
         image: "images/ESGD.png"
     },
     {
@@ -52,7 +52,7 @@ const projects = [
         created: "2024-10-15",
         updated: "2024-10-18",
         url: "https://github.com/Ilube-C/Decline-of-the-Roman-Senate-with-NLP",
-        topics: ["NLP", "Historical Research", "Data Analysis"],
+        topics: ["NLP"],
         image: "images/Senate Decline.webp"
     },
     {
@@ -63,7 +63,7 @@ const projects = [
         created: "2024-03-20",
         updated: "2024-03-20",
         url: "https://github.com/Ilube-C/Sentiment-Analysis-Visualisation",
-        topics: ["NLP", "Data Visualization", "Music Analysis"],
+        topics: ["NLP", "Visualisation"],
         image: "images/sentiment viz.webp"
     },
     {
@@ -74,7 +74,7 @@ const projects = [
         created: "2024-01-10",
         updated: "2024-01-15",
         url: "https://github.com/Ilube-C/Predicting-HLMI-with-GTC",
-        topics: ["AI", "Research", "Game Theory"],
+        topics: ["ML"],
         image: "images/GTC.webp"
     },
     {
@@ -85,7 +85,7 @@ const projects = [
         created: "2023-11-05",
         updated: "2023-11-12",
         url: "https://github.com/Ilube-C/London-Strategic-Consulting",
-        topics: ["Consulting", "Data Analysis", "Research"],
+        topics: ["Other"],
         image: "https://raw.githubusercontent.com/Ilube-C/London-Strategic-Consulting/main/Graphs/Figure.png"
     },
     {
@@ -96,7 +96,7 @@ const projects = [
         created: "2023-11-01",
         updated: "2023-11-08",
         url: "https://github.com/Ilube-C/Student-grades-data-project",
-        topics: ["Data Analysis", "Education", "Statistics"],
+        topics: ["Visualisation"],
         image: "images/Student grades data 3d.webp"
     },
     {
@@ -107,7 +107,7 @@ const projects = [
         created: "2023-09-15",
         updated: "2023-09-22",
         url: "https://github.com/Ilube-C/The-Latin-Programme-Consultancy-project",
-        topics: ["Education Research", "Data Analysis", "Consulting"],
+        topics: ["Other"],
         image: "images/Boxplot regression Latin programme.webp"
     },
     {
@@ -118,7 +118,7 @@ const projects = [
         created: "2024-02-01",
         updated: "2024-02-01",
         url: "https://github.com/Ilube-C/Pride-and-Prejudice-NLP",
-        topics: ["NLP", "Literature Analysis", "Data Analysis"],
+        topics: ["NLP"],
         image: "images/Pride and Prejudice Sentiment.webp"
     }
 ];
@@ -134,21 +134,6 @@ function groupByTopics(projects) {
             }
             groups[topic].push(project);
         });
-    });
-
-    return groups;
-}
-
-// Group projects by language
-function groupByLanguage(projects) {
-    const groups = {};
-
-    projects.forEach(project => {
-        const lang = project.language || "Other";
-        if (!groups[lang]) {
-            groups[lang] = [];
-        }
-        groups[lang].push(project);
     });
 
     return groups;
@@ -182,37 +167,23 @@ function renderProjects(viewType) {
     let html = '';
 
     if (viewType === 'chronological') {
-        const sorted = [...projects].sort((a, b) => new Date(b.updated) - new Date(a.updated));
-        html = '<div class="projects-grid">' + sorted.map(createProjectCard).join('') + '</div>';
-    }
-    else if (viewType === 'chronological-old') {
-        const sorted = [...projects].sort((a, b) => new Date(a.created) - new Date(b.created));
+        const sorted = [...projects].sort((a, b) => new Date(b.created) - new Date(a.created));
         html = '<div class="projects-grid">' + sorted.map(createProjectCard).join('') + '</div>';
     }
     else if (viewType === 'topics') {
+        const topicOrder = ['NLP', 'ML', 'Visualisation', 'Other'];
         const groups = groupByTopics(projects);
-        Object.keys(groups).sort().forEach(topic => {
-            html += `
-                <div class="topic-group">
-                    <h2>${topic}</h2>
-                    <div class="projects-grid">
-                        ${groups[topic].map(createProjectCard).join('')}
+        topicOrder.forEach(topic => {
+            if (groups[topic]) {
+                html += `
+                    <div class="topic-group">
+                        <h2>${topic}</h2>
+                        <div class="projects-grid">
+                            ${groups[topic].map(createProjectCard).join('')}
+                        </div>
                     </div>
-                </div>
-            `;
-        });
-    }
-    else if (viewType === 'language') {
-        const groups = groupByLanguage(projects);
-        Object.keys(groups).sort().forEach(language => {
-            html += `
-                <div class="topic-group">
-                    <h2>${language}</h2>
-                    <div class="projects-grid">
-                        ${groups[language].map(createProjectCard).join('')}
-                    </div>
-                </div>
-            `;
+                `;
+            }
         });
     }
 

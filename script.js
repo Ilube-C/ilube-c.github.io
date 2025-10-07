@@ -8,7 +8,7 @@ const projects = [
         created: "2025-09-13",
         updated: "2025-09-20",
         url: "https://github.com/Ilube-C/Can-SAEs-disentangle-superposed-features",
-        topics: ["ML"],
+        topics: ["ML", "Visualisation"],
         image: "images/3d_geometry_8_3_8_s0.86_uniform.png"
     },
     {
@@ -118,7 +118,7 @@ const projects = [
         created: "2024-02-01",
         updated: "2024-02-01",
         url: "https://github.com/Ilube-C/Pride-and-Prejudice-NLP",
-        topics: ["NLP"],
+        topics: ["NLP", "Visualisation"],
         image: "images/Pride and Prejudice Sentiment.webp"
     }
 ];

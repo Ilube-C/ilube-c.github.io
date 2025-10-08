@@ -34,28 +34,6 @@ const projects = [
         image: "images/ESGD.png"
     },
     {
-        name: "Decline-of-the-Roman-Senate-with-NLP",
-        title: "Decline of the Roman Senate with NLP",
-        description: "Using NLP to build evidence for the decline in power of the Roman Senate during the Augustan Principate.",
-        language: "Python",
-        created: "2024-10-15",
-        updated: "2024-10-18",
-        url: "https://github.com/Ilube-C/Decline-of-the-Roman-Senate-with-NLP",
-        topics: ["NLP"],
-        image: "images/Senate Decline.webp"
-    },
-    {
-        name: "Sentiment-Analysis-Visualisation",
-        title: "Sentiment Analysis Visualisation",
-        description: "A visualisation tool I made for a project investigating the change in sentiment of music lyrics over time",
-        language: "Python",
-        created: "2024-03-20",
-        updated: "2024-03-20",
-        url: "https://github.com/Ilube-C/Sentiment-Analysis-Visualisation",
-        topics: ["NLP", "Visualisation"],
-        image: "images/sentiment viz.webp"
-    },
-    {
         name: "Pride-and-Prejudice-NLP",
         title: "Pride and Prejudice NLP Analysis",
         description: "Natural Language Processing analysis of Jane Austen's Pride and Prejudice, exploring linguistic patterns and character interactions.",
@@ -65,28 +43,6 @@ const projects = [
         url: "https://github.com/Ilube-C/Pride-and-Prejudice-NLP",
         topics: ["NLP", "Visualisation"],
         image: "images/Pride and Prejudice Sentiment.webp"
-    },
-    {
-        name: "Predicting-HLMI-with-GTC",
-        title: "Predicting HLMI with Game Theory Complexity",
-        description: "By observing the trend over time of AI surpassing peak human performance at games of increasing Game Tree Complexity, I try to predict when Human Level Machine Intelligence will be achieved.",
-        language: "Python",
-        created: "2024-01-10",
-        updated: "2024-01-15",
-        url: "https://github.com/Ilube-C/Predicting-HLMI-with-GTC",
-        topics: ["AI"],
-        image: "images/GTC.webp"
-    },
-    {
-        name: "London-Strategic-Consulting",
-        title: "London Strategic Consulting",
-        description: "My contributions as a technical consultant for a client in need of content creation research",
-        language: "Python",
-        created: "2023-11-05",
-        updated: "2023-11-12",
-        url: "https://github.com/Ilube-C/London-Strategic-Consulting",
-        topics: ["Consulting"],
-        image: "https://raw.githubusercontent.com/Ilube-C/London-Strategic-Consulting/main/Graphs/Figure.png"
     },
     {
         name: "Student-grades-data-project",
@@ -109,6 +65,50 @@ const projects = [
         url: "https://github.com/Ilube-C/The-Latin-Programme-Consultancy-project",
         topics: ["Consulting"],
         image: "images/Boxplot regression Latin programme.webp"
+    },
+    {
+        name: "London-Strategic-Consulting",
+        title: "London Strategic Consulting",
+        description: "My contributions as a technical consultant for a client in need of content creation research",
+        language: "Python",
+        created: "2023-11-05",
+        updated: "2023-11-12",
+        url: "https://github.com/Ilube-C/London-Strategic-Consulting",
+        topics: ["Consulting"],
+        image: "https://raw.githubusercontent.com/Ilube-C/London-Strategic-Consulting/main/Graphs/Figure.png"
+    },
+    {
+        name: "Decline-of-the-Roman-Senate-with-NLP",
+        title: "Decline of the Roman Senate with NLP",
+        description: "Using NLP to build evidence for the decline in power of the Roman Senate during the Augustan Principate.",
+        language: "Python",
+        created: "2024-10-15",
+        updated: "2024-10-18",
+        url: "https://github.com/Ilube-C/Decline-of-the-Roman-Senate-with-NLP",
+        topics: ["NLP"],
+        image: "images/Senate Decline.webp"
+    },
+    {
+        name: "Sentiment-Analysis-Visualisation",
+        title: "Sentiment Analysis Visualisation",
+        description: "A visualisation tool I made for a project investigating the change in sentiment of music lyrics over time",
+        language: "Python",
+        created: "2024-03-20",
+        updated: "2024-03-20",
+        url: "https://github.com/Ilube-C/Sentiment-Analysis-Visualisation",
+        topics: ["NLP", "Visualisation"],
+        image: "images/sentiment viz.webp"
+    },
+    {
+        name: "Predicting-HLMI-with-GTC",
+        title: "Predicting HLMI with Game Theory Complexity",
+        description: "By observing the trend over time of AI surpassing peak human performance at games of increasing Game Tree Complexity, I try to predict when Human Level Machine Intelligence will be achieved.",
+        language: "Python",
+        created: "2024-01-10",
+        updated: "2024-01-15",
+        url: "https://github.com/Ilube-C/Predicting-HLMI-with-GTC",
+        topics: ["AI"],
+        image: "images/GTC.webp"
     },
     {
         name: "Chess-Variant-AI",

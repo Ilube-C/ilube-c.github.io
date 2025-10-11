@@ -3,7 +3,7 @@ const projects = [
     {
         name: "Can-SAEs-disentangle-superposed-features",
         title: "Can SAEs Disentangle Superposed Features",
-        description: "Research project exploring Sparse Autoencoders and feature disentanglement in machine learning models.",
+        description: "Toy models experiment to analyse the validity of Anthropic's approach to interpreting an LLM and deepen our understanding of superposition in neural networks",
         language: "Research",
         created: "2025-09-13",
         updated: "2025-09-20",
@@ -25,7 +25,7 @@ const projects = [
     {
         name: "ESGD",
         title: "Evolutionary Stochastic Gradient Descent",
-        description: "An implementation and tutorial of Evolutionary Stochastic Gradient Descent optimization algorithm.",
+        description: "Implementation, tutorial and mathematical framing of Evolutionary Stochastic Gradient Descent optimization algorithm from ESGD Neurips",
         language: "Jupyter Notebook",
         created: "2025-06-29",
         updated: "2025-06-29",
@@ -36,7 +36,7 @@ const projects = [
     {
         name: "Pride-and-Prejudice-NLP",
         title: "Pride and Prejudice NLP Analysis",
-        description: "Natural Language Processing analysis of Jane Austen's Pride and Prejudice, exploring linguistic patterns and character interactions.",
+        description: "NER followed by change in sentiment through the narrative visualised with stochastic denoising on Jane Austen's Pride and Prejudice.",
         language: "Python",
         created: "2024-02-01",
         updated: "2024-02-01",
@@ -47,7 +47,7 @@ const projects = [
     {
         name: "Student-grades-data-project",
         title: "Student Grades Data Project",
-        description: "Data analysis project examining student performance and academic outcomes through statistical modeling.",
+        description: "Data analysis project examining the fairness and authenticity of different grading strategies",
         language: "Python",
         created: "2023-11-01",
         updated: "2023-11-08",
@@ -58,7 +58,7 @@ const projects = [
     {
         name: "The-Latin-Programme-Consultancy-project",
         title: "The Latin Programme Consultancy",
-        description: "Research I did for the charity I volunteer at which aims to demonstrate the positive effect studying Latin has on general academic attainment.",
+        description: "Research to demonstrate the positive effect studying Latin has on general academic attainment",
         language: "Python",
         created: "2023-09-15",
         updated: "2023-09-22",
@@ -69,7 +69,7 @@ const projects = [
     {
         name: "London-Strategic-Consulting",
         title: "London Strategic Consulting",
-        description: "My contributions as a technical consultant for a client in need of content creation research",
+        description: "Analyzing profitability of content creation to inform the acquisition strategy of a client.",
         language: "Python",
         created: "2023-11-05",
         updated: "2023-11-12",
@@ -113,7 +113,7 @@ const projects = [
     {
         name: "Chess-Variant-AI",
         title: "Chess Variant AI",
-        description: "Artificial intelligence system designed to play and analyze chess variants using advanced algorithms.",
+        description: "Started as A-level project allowing users to create and play their own chess variants, since then have added a general AI that can play any user defined variant (custom heuristics, min-max with alpha-beta pruning)",
         language: "Python",
         created: "2023-07-04",
         updated: "2025-06-29",

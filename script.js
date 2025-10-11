@@ -36,7 +36,7 @@ const projects = [
     {
         name: "Pride-and-Prejudice-NLP",
         title: "Pride and Prejudice NLP Analysis",
-        description: "NER followed by change in sentiment through the narrative visualised with stochastic denoising on Jane Austen's Pride and Prejudice.",
+        description: "NER followed by change in sentiment by character visualised with stochastic denoising on Jane Austen's Pride and Prejudice.",
         language: "Python",
         created: "2024-02-01",
         updated: "2024-02-01",

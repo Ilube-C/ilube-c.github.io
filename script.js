@@ -64,7 +64,7 @@ const projects = [
         updated: "2024-11-01",
         url: "https://github.com/Ilube-C/Model-Complexity-Class-Imbalance",
         topics: ["ML"],
-        image: "images/Model Complexity.png"
+        image: "images/graph.png"
     },
     {
         name: "The-Latin-Programme-Consultancy-project",

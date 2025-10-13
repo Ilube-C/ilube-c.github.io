@@ -12,6 +12,17 @@ const projects = [
         image: "images/3d_geometry_8_3_8_s0.86_uniform.png"
     },
     {
+        name: "Pride-and-Prejudice-NLP",
+        title: "Pride and Prejudice NLP Analysis",
+        description: "NER followed by change in sentiment by character visualised with stochastic denoising on Jane Austen's Pride and Prejudice.",
+        language: "Python",
+        created: "2024-02-01",
+        updated: "2024-02-01",
+        url: "https://github.com/Ilube-C/Sentiment-of-main-characters-throughout-pride-and-prejudice",
+        topics: ["NLP", "Visualisation"],
+        image: "images/Pride and Prejudice Sentiment.webp"
+    },
+    {
         name: "agenticenv",
         title: "Agentic Environment",
         description: "Testing an agentic environment with CrewAI - exploring multi-agent AI systems.",
@@ -34,17 +45,6 @@ const projects = [
         image: "images/ESGD.png"
     },
     {
-        name: "Pride-and-Prejudice-NLP",
-        title: "Pride and Prejudice NLP Analysis",
-        description: "NER followed by change in sentiment by character visualised with stochastic denoising on Jane Austen's Pride and Prejudice.",
-        language: "Python",
-        created: "2024-02-01",
-        updated: "2024-02-01",
-        url: "https://github.com/Ilube-C/Sentiment-of-main-characters-throughout-pride-and-prejudice",
-        topics: ["NLP", "Visualisation"],
-        image: "images/Pride and Prejudice Sentiment.webp"
-    },
-    {
         name: "Student-grades-data-project",
         title: "Student Grades Data Project",
         description: "Data analysis project examining the fairness and authenticity of different grading strategies",
@@ -54,6 +54,17 @@ const projects = [
         url: "https://github.com/Ilube-C/Student-grades-data-project",
         topics: ["Visualisation"],
         image: "images/Student grades data 3d.webp"
+    },
+    {
+        name: "Model-Complexity-Class-Imbalance",
+        title: "How is model complexity affected by class imbalance?",
+        description: "Study exploring how different classification architectures [Covariance, Log Reg, MLP] handle variation in class imbalance across train and test data.",
+        language: "Python",
+        created: "2024-11-01",
+        updated: "2024-11-01",
+        url: "https://github.com/Ilube-C/Model-Complexity-Class-Imbalance",
+        topics: ["ML"],
+        image: "images/Model Complexity.png"
     },
     {
         name: "The-Latin-Programme-Consultancy-project",

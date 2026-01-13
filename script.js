@@ -5,8 +5,8 @@ const projects = [
         title: "Options Pricing Model",
         description: "Implementation of a binomial tree model for options pricing, visualising option values across different steps and moves.",
         language: "Python",
-        created: "2025-01-13",
-        updated: "2025-01-13",
+        created: "2026-01-13",
+        updated: "2026-01-13",
         url: "https://github.com/Ilube-C/Options-Pricing-Model",
         topics: ["ML", "Visualisation"],
         image: "images/options_pricing.png"

@@ -7,7 +7,7 @@ const projects = [
         language: "Python",
         created: "2026-01-13",
         updated: "2026-01-13",
-        url: "https://github.com/Ilube-C/Options-Pricing-Model",
+        url: "https://github.com/Ilube-C/Cox-Ross-Rubenstein-options-pricing-model",
         topics: ["ML", "Visualisation"],
         image: "images/options_pricing.png"
     },

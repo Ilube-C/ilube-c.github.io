@@ -1,6 +1,17 @@
 // Repository data from GitHub
 const projects = [
     {
+        name: "Options-Pricing-Model",
+        title: "Options Pricing Model",
+        description: "Implementation of a binomial tree model for options pricing, visualising option values across different steps and moves.",
+        language: "Python",
+        created: "2025-01-13",
+        updated: "2025-01-13",
+        url: "https://github.com/Ilube-C/Options-Pricing-Model",
+        topics: ["ML", "Visualisation"],
+        image: "images/options_pricing.png"
+    },
+    {
         name: "Can-SAEs-disentangle-superposed-features",
         title: "Can SAEs Disentangle Superposed Features",
         description: "Toy models experiment to analyse the validity of Anthropic's approach to interpreting an LLM and deepen our understanding of superposition in neural networks",

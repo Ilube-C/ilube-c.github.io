@@ -27,6 +27,44 @@
         <div id="projectsContainer"></div>
     </main>
 
-    <script src="script.js?v=22"></script>
+    <!-- Chat Widget -->
+    <button class="chat-toggle-btn" onclick="toggleChat()" aria-label="Open chat">
+        <svg class="chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    </button>
+
+    <div class="chat-sidebar" id="chatSidebar">
+        <div class="chat-header">
+            <h3>Chat about my projects</h3>
+            <button class="chat-close-btn" onclick="toggleChat()" aria-label="Close chat">&times;</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-welcome">
+                <p>Hi! Ask me anything about the projects in this portfolio.</p>
+            </div>
+            <div class="chat-suggestions" id="chatSuggestions">
+                <button class="suggestion-btn" onclick="sendSuggestion(this)">What projects use Machine Learning?</button>
+                <button class="suggestion-btn" onclick="sendSuggestion(this)">Tell me about the SAE interpretability project</button>
+                <button class="suggestion-btn" onclick="sendSuggestion(this)">What consulting work have you done?</button>
+                <button class="suggestion-btn" onclick="sendSuggestion(this)">What's the options pricing model about?</button>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Ask about my projects..." onkeypress="handleChatKeypress(event)">
+            <button class="chat-send-btn" onclick="sendChatMessage()" aria-label="Send message">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js?v=23"></script>
 </body>
 </html>

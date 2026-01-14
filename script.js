@@ -235,3 +235,168 @@ document.getElementById('viewSelect').addEventListener('change', (e) => {
 
 // Initial render
 renderProjects('custom');
+
+// ============================================
+// Chat Sidebar Functionality
+// ============================================
+
+const GEMINI_API_KEY = 'AIzaSyAh2jD8RtPVypUHzai7pZfmJjWrQwb1ot4';
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+let chatHistory = [];
+let isWaitingForResponse = false;
+
+// Generate system prompt with project context
+function getSystemPrompt() {
+    const projectSummaries = projects.map(p =>
+        `- "${p.title}": ${p.description} (Topics: ${p.topics.join(', ')}, Language: ${p.language})`
+    ).join('\n');
+
+    return `You are a helpful assistant on Ilube-C's portfolio website. You help visitors learn about the projects showcased here. Be concise, friendly, and informative. Here are the projects in this portfolio:
+
+${projectSummaries}
+
+Answer questions about these projects based on the information provided. If asked about something not related to these projects, politely redirect the conversation back to the portfolio. Keep responses brief and focused.`;
+}
+
+// Toggle chat sidebar
+function toggleChat() {
+    const sidebar = document.getElementById('chatSidebar');
+    const toggleBtn = document.querySelector('.chat-toggle-btn');
+
+    sidebar.classList.toggle('open');
+    toggleBtn.classList.toggle('active');
+}
+
+// Add message to chat
+function addMessage(text, isUser) {
+    const messagesContainer = document.getElementById('chatMessages');
+    const suggestions = document.getElementById('chatSuggestions');
+    const welcome = document.querySelector('.chat-welcome');
+
+    // Hide welcome and suggestions after first message
+    if (welcome) welcome.style.display = 'none';
+    if (suggestions) suggestions.style.display = 'none';
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-message ${isUser ? 'user' : 'assistant'}`;
+    messageDiv.textContent = text;
+
+    messagesContainer.appendChild(messageDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// Show typing indicator
+function showTypingIndicator() {
+    const messagesContainer = document.getElementById('chatMessages');
+
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'chat-message typing';
+    typingDiv.id = 'typingIndicator';
+    typingDiv.innerHTML = `
+        <div class="typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    `;
+
+    messagesContainer.appendChild(typingDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// Hide typing indicator
+function hideTypingIndicator() {
+    const indicator = document.getElementById('typingIndicator');
+    if (indicator) indicator.remove();
+}
+
+// Call Gemini API
+async function callGeminiAPI(userMessage) {
+    chatHistory.push({ role: 'user', content: userMessage });
+
+    // Build conversation context
+    const conversationContext = chatHistory.map(msg =>
+        `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`
+    ).join('\n');
+
+    const fullPrompt = `${getSystemPrompt()}\n\nConversation so far:\n${conversationContext}\n\nRespond to the user's last message concisely:`;
+
+    try {
+        const response = await fetch(GEMINI_API_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{
+                        text: fullPrompt
+                    }]
+                }]
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const assistantMessage = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I could not generate a response.';
+
+        chatHistory.push({ role: 'assistant', content: assistantMessage });
+        return assistantMessage;
+
+    } catch (error) {
+        console.error('Gemini API error:', error);
+        return 'Sorry, there was an error connecting to the chat service. Please try again.';
+    }
+}
+
+// Send chat message
+async function sendChatMessage() {
+    const input = document.getElementById('chatInput');
+    const sendBtn = document.querySelector('.chat-send-btn');
+    const message = input.value.trim();
+
+    if (!message || isWaitingForResponse) return;
+
+    // Clear input and disable
+    input.value = '';
+    input.disabled = true;
+    sendBtn.disabled = true;
+    isWaitingForResponse = true;
+
+    // Add user message
+    addMessage(message, true);
+
+    // Show typing indicator
+    showTypingIndicator();
+
+    // Get response from Gemini
+    const response = await callGeminiAPI(message);
+
+    // Hide typing and show response
+    hideTypingIndicator();
+    addMessage(response, false);
+
+    // Re-enable input
+    input.disabled = false;
+    sendBtn.disabled = false;
+    isWaitingForResponse = false;
+    input.focus();
+}
+
+// Handle Enter key in chat input
+function handleChatKeypress(event) {
+    if (event.key === 'Enter') {
+        sendChatMessage();
+    }
+}
+
+// Send suggestion as message
+function sendSuggestion(btn) {
+    const input = document.getElementById('chatInput');
+    input.value = btn.textContent;
+    sendChatMessage();
+}

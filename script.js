@@ -265,9 +265,11 @@ Answer questions about these projects based on the information provided. You can
 function toggleChat() {
     const sidebar = document.getElementById('chatSidebar');
     const toggleBtn = document.querySelector('.chat-toggle-btn');
+    const backdrop = document.getElementById('chatBackdrop');
 
     sidebar.classList.toggle('open');
     toggleBtn.classList.toggle('active');
+    backdrop.classList.toggle('visible');
 }
 
 // Add message to chat

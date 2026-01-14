@@ -37,18 +37,6 @@ const projects = [
         image: "images/Pride and Prejudice Sentiment.webp"
     },
     {
-        name: "agenticenv",
-        title: "Agentic Environment",
-        description: "Testing an agentic environment with CrewAI - exploring multi-agent AI systems.",
-        details: "Experiments with CrewAI framework for building multi-agent AI systems. Defines specialized agents with distinct roles and goals that collaborate to complete complex tasks. Explores agent orchestration patterns, task delegation, and how multiple AI agents can work together more effectively than a single agent.",
-        language: "Python",
-        created: "2025-07-21",
-        updated: "2025-07-21",
-        url: "https://github.com/Ilube-C/agenticenv",
-        topics: ["AI"],
-        image: "🤖"
-    },
-    {
         name: "ESGD",
         title: "Evolutionary Stochastic Gradient Descent",
         description: "Implementation, tutorial and mathematical framing of Evolutionary Stochastic Gradient Descent optimization algorithm from ESGD Neurips",

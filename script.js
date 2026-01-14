@@ -4,6 +4,7 @@ const projects = [
         name: "Options-Pricing-Model",
         title: "Options Pricing Model",
         description: "Implementation of a binomial tree model for options pricing, visualising option values across different steps and moves.",
+        details: "Uses the Cox-Ross-Rubinstein (CRR) binomial tree model to price European and American options. The tree is built recursively, calculating up and down movements based on volatility. Option values are computed via backward induction from expiry to present. Visualizations show the price tree structure and how option values change across different time steps and stock price movements.",
         language: "Python",
         created: "2026-01-13",
         updated: "2026-01-13",
@@ -15,6 +16,7 @@ const projects = [
         name: "Can-SAEs-disentangle-superposed-features",
         title: "Can SAEs Disentangle Superposed Features",
         description: "Toy models experiment to analyse the validity of Anthropic's approach to interpreting an LLM and deepen our understanding of superposition in neural networks",
+        details: "Investigates Sparse Autoencoders (SAEs) as a mechanistic interpretability tool following Anthropic's research. Creates toy models with known ground-truth features to test whether SAEs can recover individual features from superposed representations. Explores how neural networks compress more features than dimensions (superposition) and whether SAEs can disentangle them. Includes 3D visualizations of feature geometry and activation patterns.",
         language: "Research",
         created: "2025-09-13",
         updated: "2025-09-20",
@@ -26,6 +28,7 @@ const projects = [
         name: "Pride-and-Prejudice-NLP",
         title: "Pride and Prejudice NLP Analysis",
         description: "NER followed by change in sentiment by character visualised with stochastic denoising on Jane Austen's Pride and Prejudice.",
+        details: "Applies Named Entity Recognition (NER) to identify character mentions throughout the novel. Performs sentiment analysis on text surrounding each character mention to track how sentiment toward characters evolves through the narrative. Uses stochastic denoising to smooth noisy sentiment signals while preserving meaningful trends. Visualizes Mr. Darcy's sentiment arc showing his transformation from villain to hero in Elizabeth's perception.",
         language: "Python",
         created: "2024-02-01",
         updated: "2024-02-01",
@@ -37,6 +40,7 @@ const projects = [
         name: "agenticenv",
         title: "Agentic Environment",
         description: "Testing an agentic environment with CrewAI - exploring multi-agent AI systems.",
+        details: "Experiments with CrewAI framework for building multi-agent AI systems. Defines specialized agents with distinct roles and goals that collaborate to complete complex tasks. Explores agent orchestration patterns, task delegation, and how multiple AI agents can work together more effectively than a single agent.",
         language: "Python",
         created: "2025-07-21",
         updated: "2025-07-21",
@@ -48,6 +52,7 @@ const projects = [
         name: "ESGD",
         title: "Evolutionary Stochastic Gradient Descent",
         description: "Implementation, tutorial and mathematical framing of Evolutionary Stochastic Gradient Descent optimization algorithm from ESGD Neurips",
+        details: "Implements the ESGD algorithm from NeurIPS research which combines evolutionary strategies with stochastic gradient descent. Provides mathematical derivation of the algorithm, explaining how it uses population-based search to escape local minima while maintaining gradient-based efficiency. Includes Jupyter tutorial walking through the algorithm step-by-step with visualizations of the optimization landscape.",
         language: "Jupyter Notebook",
         created: "2025-06-29",
         updated: "2025-06-29",
@@ -59,6 +64,7 @@ const projects = [
         name: "Student-grades-data-project",
         title: "Student Grades Data Project",
         description: "Data analysis project examining the fairness and authenticity of different grading strategies",
+        details: "Analyzes student grade distributions to evaluate different grading strategies for fairness and authenticity. Compares approaches like curve grading, absolute thresholds, and percentile-based methods. Uses 3D visualizations to show how grade distributions change under different policies. Examines whether grading methods accurately reflect student performance or introduce systematic biases.",
         language: "Python",
         created: "2023-11-01",
         updated: "2023-11-08",
@@ -70,6 +76,7 @@ const projects = [
         name: "Model-Complexity-Class-Imbalance",
         title: "How is model complexity affected by class imbalance?",
         description: "Study exploring how different classification architectures [Covariance, Log Reg, MLP] handle variation in class imbalance across train and test data.",
+        details: "Systematic study comparing how Covariance-based classifiers, Logistic Regression, and Multi-Layer Perceptrons respond to varying class imbalance ratios. Tests scenarios where train and test distributions differ in class balance. Measures how model complexity (capacity) affects robustness to imbalance. Finds that simpler models can outperform complex ones when class distributions shift between training and deployment.",
         language: "Python",
         created: "2024-11-01",
         updated: "2024-11-01",
@@ -81,6 +88,7 @@ const projects = [
         name: "The-Latin-Programme-Consultancy-project",
         title: "The Latin Programme Consultancy",
         description: "Research to demonstrate the positive effect studying Latin has on general academic attainment",
+        details: "Consultancy project for The Latin Programme charity analyzing whether Latin instruction improves academic outcomes. Uses statistical regression analysis to control for confounding variables (socioeconomic status, prior attainment). Visualizes results with boxplots showing grade distributions for Latin vs non-Latin students. Provides evidence-based findings to support the charity's educational mission.",
         language: "Python",
         created: "2023-09-15",
         updated: "2023-09-22",
@@ -92,6 +100,7 @@ const projects = [
         name: "London-Strategic-Consulting",
         title: "London Strategic Consulting",
         description: "Analyzing profitability of content creation to inform the acquisition strategy of a client.",
+        details: "Consulting engagement with London Strategic Consulting analyzing content creator economics. Built financial models to assess profitability across different content types and platforms. Provided data-driven recommendations for client's acquisition strategy, identifying which content creator profiles offer best ROI. Delivered insights on market trends and valuation metrics in the creator economy.",
         language: "Python",
         created: "2023-11-05",
         updated: "2023-11-12",
@@ -103,6 +112,7 @@ const projects = [
         name: "Decline-of-the-Roman-Senate-with-NLP",
         title: "Decline of the Roman Senate with NLP",
         description: "Using NLP to build evidence for the decline in power of the Roman Senate during the Augustan Principate.",
+        details: "Applies NLP techniques to ancient Roman texts to quantify the Senate's declining influence under Augustus. Analyzes frequency and context of Senate mentions in primary sources across different time periods. Uses sentiment analysis to detect changes in how authors portrayed senatorial authority. Provides computational evidence supporting the historical thesis that Augustus systematically diminished senatorial power while maintaining republican facades.",
         language: "Python",
         created: "2024-10-15",
         updated: "2024-10-18",
@@ -114,6 +124,7 @@ const projects = [
         name: "Sentiment-Analysis-Visualisation",
         title: "Sentiment Analysis Visualisation",
         description: "A visualisation tool I made for a project investigating the change in sentiment of music lyrics over time",
+        details: "Interactive visualization tool for exploring sentiment trends in music lyrics over decades. Processes lyrics through sentiment analysis models and aggregates scores by year/genre. Creates animated and static visualizations showing how emotional tone in popular music has evolved. Built as a reusable tool that can be applied to any text corpus for temporal sentiment analysis.",
         language: "Python",
         created: "2024-03-20",
         updated: "2024-03-20",
@@ -125,6 +136,7 @@ const projects = [
         name: "Predicting-HLMI-with-GTC",
         title: "Predicting HLMI with Game Theory Complexity",
         description: "By observing the trend over time of AI surpassing peak human performance at games of increasing Game Tree Complexity, I try to predict when Human Level Machine Intelligence will be achieved.",
+        details: "Analyzes the historical progression of AI beating humans at games of increasing Game Tree Complexity (GTC) - from checkers to chess to Go. Plots GTC against the year AI achieved superhuman performance and fits trend lines. Extrapolates to estimate when AI might master tasks at human-level general complexity. Discusses limitations of using game complexity as a proxy for general intelligence.",
         language: "Python",
         created: "2024-01-10",
         updated: "2024-01-15",
@@ -136,6 +148,7 @@ const projects = [
         name: "Chess-Variant-AI",
         title: "Chess Variant AI",
         description: "Started as A-level project allowing users to create and play their own chess variants, since then have added a general AI that can play any user defined variant (custom heuristics, min-max with alpha-beta pruning)",
+        details: "The board is represented as an 8x8 2D array where each cell contains a piece object or null. Users can define custom pieces by specifying movement patterns as coordinate offsets (e.g., knight moves as [(-2,-1), (-2,1), ...])​. Custom piece values and board setups are configurable. The AI uses minimax search with alpha-beta pruning to efficiently explore the game tree. Position evaluation uses customizable heuristics based on material count, piece-square tables, and mobility. The system can play any user-defined variant without modification to the core AI logic.",
         language: "Python",
         created: "2023-07-04",
         updated: "2025-06-29",
@@ -250,14 +263,14 @@ let isWaitingForResponse = false;
 // Generate system prompt with project context
 function getSystemPrompt() {
     const projectSummaries = projects.map(p =>
-        `- "${p.title}": ${p.description} (Topics: ${p.topics.join(', ')}, Language: ${p.language})`
-    ).join('\n');
+        `- "${p.title}": ${p.description}${p.details ? `\n  Implementation: ${p.details}` : ''}\n  (Topics: ${p.topics.join(', ')}, Language: ${p.language})`
+    ).join('\n\n');
 
     return `You are a helpful assistant on Ilube-C's portfolio website. You help visitors learn about the projects showcased here. Be concise, friendly, and informative. Here are the projects in this portfolio:
 
 ${projectSummaries}
 
-Answer questions about these projects based on the information provided. If asked about something not related to these projects, politely redirect the conversation back to the portfolio. Keep responses brief and focused.`;
+Answer questions about these projects based on the information provided. You can discuss implementation details, technologies used, and methodologies. If asked about something not related to these projects, politely redirect the conversation back to the portfolio. Keep responses brief and focused.`;
 }
 
 // Toggle chat sidebar

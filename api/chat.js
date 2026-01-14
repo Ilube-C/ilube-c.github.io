@@ -11,8 +11,6 @@ const projectRepos = {
     'pride and prejudice': 'Sentiment-of-main-characters-throughout-pride-and-prejudice',
     'nlp': 'Sentiment-of-main-characters-throughout-pride-and-prejudice',
     'sentiment': 'Sentiment-of-main-characters-throughout-pride-and-prejudice',
-    'crewai': 'agenticenv',
-    'agentic': 'agenticenv',
     'esgd': 'ESGD',
     'gradient descent': 'ESGD',
     'student grades': 'Student-grades-data-project',
@@ -107,19 +105,18 @@ async function getRepoCode(repo) {
 
 // Project details (same as frontend)
 const projectDetails = {
-    'Cox-Ross-Rubenstein-options-pricing-model': 'Uses the Cox-Ross-Rubinstein (CRR) binomial tree model to price European and American options.',
+    'Cox-Ross-Rubenstein-options-pricing-model': 'Uses the Cox-Ross-Rubinstein (CRR) binomial tree model to price European and American options. Python/Jupyter.',
     'Can-SAEs-disentangle-superposed-features': 'Investigates Sparse Autoencoders (SAEs) as a mechanistic interpretability tool following Anthropic\'s research.',
-    'Sentiment-of-main-characters-throughout-pride-and-prejudice': 'Applies Named Entity Recognition (NER) to identify character mentions and track sentiment evolution.',
-    'agenticenv': 'Experiments with CrewAI framework for building multi-agent AI systems.',
-    'ESGD': 'Implements the ESGD algorithm from NeurIPS research combining evolutionary strategies with SGD.',
-    'Student-grades-data-project': 'Analyzes student grade distributions to evaluate different grading strategies.',
-    'Model-Complexity-Class-Imbalance': 'Studies how different classification architectures handle class imbalance.',
+    'Sentiment-of-main-characters-throughout-pride-and-prejudice': 'NLP project applying Named Entity Recognition (NER) to track sentiment evolution of characters in Pride and Prejudice.',
+    'ESGD': 'Implements the ESGD algorithm from NeurIPS research combining evolutionary strategies with SGD. Jupyter notebook tutorial.',
+    'Student-grades-data-project': 'Statistics project analyzing student grade distributions to evaluate different grading strategies.',
+    'Model-Complexity-Class-Imbalance': 'Studies how different classification architectures (Covariance, LogReg, MLP) handle class imbalance.',
     'The-Latin-Programme-Consultancy-project': 'Consultancy project analyzing whether Latin instruction improves academic outcomes.',
-    'London-Strategic-Consulting': 'Consulting engagement analyzing content creator economics.',
-    'Decline-of-the-Roman-Senate-with-NLP': 'Applies NLP to ancient Roman texts to quantify Senate\'s declining influence.',
-    'Sentiment-Analysis-Visualisation': 'Interactive visualization tool for exploring sentiment trends in music lyrics.',
-    'Predicting-HLMI-with-GTC': 'Analyzes AI progress at games to predict Human Level Machine Intelligence.',
-    'Chess-Variant-AI': 'Board is an 8x8 2D array. AI uses minimax with alpha-beta pruning. Custom pieces defined via coordinate offsets.',
+    'London-Strategic-Consulting': 'Consulting engagement analyzing content creator economics and profitability.',
+    'Decline-of-the-Roman-Senate-with-NLP': 'Applies NLP to ancient Roman texts to quantify Senate\'s declining influence under Augustus.',
+    'Sentiment-Analysis-Visualisation': 'Interactive visualization tool for exploring sentiment trends in music lyrics over time.',
+    'Predicting-HLMI-with-GTC': 'Analyzes AI progress at games (using Game Tree Complexity) to predict Human Level Machine Intelligence.',
+    'Chess-Variant-AI': 'A-level project: Chess variant creator with AI using minimax/alpha-beta pruning. Built with OOP (Board, Piece, Game classes).',
 };
 
 // Call Gemini API
@@ -190,14 +187,23 @@ export default async function handler(req, res) {
             }
         }
 
+        // Build project list for context
+        const projectList = Object.entries(projectDetails)
+            .map(([name, desc]) => `- ${name}: ${desc}`)
+            .join('\n');
+
         // Build the prompt
         const systemPrompt = `You are a helpful assistant on Ilube-C's portfolio website. You help visitors learn about the projects showcased here. Be concise, friendly, and informative.
+
+IMPORTANT: Only discuss the following projects that are actually in this portfolio. Do not make up or reference any other projects:
+
+${projectList}
 
 When answering questions about code implementation, refer to the actual code provided when available. Explain the code clearly and highlight interesting implementation details.
 
 ${codeContext}
 
-Keep responses brief and focused. If you reference specific code, mention the file name.`;
+Keep responses brief and focused. Only reference projects from the list above.`;
 
         const conversationHistory = history.map(msg =>
             `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`

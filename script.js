@@ -8,7 +8,7 @@ const projects = [
         language: "Python",
         created: "2026-01-13",
         updated: "2026-01-13",
-        url: "https://github.com/Ilube-C/Cox-Ross-Rubenstein-options-pricing-model",
+        url: "https://github.com/Ilube-C/Cox-Ross-Rubenstein-options-pricing-model/blob/main/Cox_Ross_Rubinstein.ipynb",
         topics: ["ML", "Visualisation"],
         image: "images/options_pricing.png"
     },
@@ -32,7 +32,7 @@ const projects = [
         language: "Python",
         created: "2024-02-01",
         updated: "2024-02-01",
-        url: "https://github.com/Ilube-C/Sentiment-of-main-characters-throughout-pride-and-prejudice",
+        url: "https://github.com/Ilube-C/Sentiment-of-main-characters-throughout-pride-and-prejudice/blob/main/NLP%20project.ipynb",
         topics: ["NLP", "Visualisation"],
         image: "images/Pride and Prejudice Sentiment.webp"
     },
@@ -56,7 +56,7 @@ const projects = [
         language: "Jupyter Notebook",
         created: "2025-06-29",
         updated: "2025-06-29",
-        url: "https://github.com/Ilube-C/ESGD",
+        url: "https://github.com/Ilube-C/ESGD/blob/main/ESGD.ipynb",
         topics: ["ML"],
         image: "images/ESGD.png"
     },

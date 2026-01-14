@@ -68,7 +68,7 @@ const projects = [
         language: "Python",
         created: "2023-11-01",
         updated: "2023-11-08",
-        url: "https://github.com/Ilube-C/Student-grades-data-project",
+        url: "https://github.com/Ilube-C/Student-grades-data-project/blob/main/Stats%20student%20grades%20project.ipynb",
         topics: ["Visualisation"],
         image: "images/Student grades data 3d.webp"
     },

@@ -325,11 +325,47 @@ function hideTypingIndicator() {
     if (indicator) indicator.remove();
 }
 
-// Call Gemini API
+// Call Chat API (Vercel backend with GitHub code access)
 async function callGeminiAPI(userMessage) {
     chatHistory.push({ role: 'user', content: userMessage });
 
-    // Build conversation context
+    try {
+        // Try Vercel API first (has GitHub code access)
+        const apiUrl = window.location.hostname.includes('vercel.app') || window.location.hostname === 'localhost'
+            ? '/api/chat'
+            : 'https://ilube-c-portfolio.vercel.app/api/chat'; // Update this after Vercel deployment
+
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                message: userMessage,
+                history: chatHistory.slice(0, -1) // Don't include the message we just added
+            })
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            const assistantMessage = data.response;
+            chatHistory.push({ role: 'assistant', content: assistantMessage });
+            return assistantMessage;
+        }
+
+        // Fall back to direct Gemini API if Vercel API fails
+        console.log('Vercel API unavailable, falling back to direct Gemini API');
+        return await callGeminiDirectly(userMessage);
+
+    } catch (error) {
+        console.error('Chat API error:', error);
+        // Fall back to direct Gemini API
+        return await callGeminiDirectly(userMessage);
+    }
+}
+
+// Direct Gemini API call (fallback)
+async function callGeminiDirectly(userMessage) {
     const conversationContext = chatHistory.map(msg =>
         `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`
     ).join('\n');

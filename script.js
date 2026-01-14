@@ -208,6 +208,22 @@ function renderProjects(viewType) {
             }
         });
     }
+    else if (viewType === 'custom') {
+        const customOrder = [
+            'Options-Pricing-Model',
+            'Can-SAEs-disentangle-superposed-features',
+            'Pride-and-Prejudice-NLP',
+            'ESGD',
+            'Student-grades-data-project',
+            'Chess-Variant-AI'
+        ];
+        const priorityProjects = customOrder
+            .map(name => projects.find(p => p.name === name))
+            .filter(p => p);
+        const remainingProjects = projects.filter(p => !customOrder.includes(p.name));
+        const orderedProjects = [...priorityProjects, ...remainingProjects];
+        html = '<div class="projects-grid">' + orderedProjects.map(createProjectCard).join('') + '</div>';
+    }
 
     container.innerHTML = html;
 }

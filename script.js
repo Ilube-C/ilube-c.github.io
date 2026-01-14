@@ -234,4 +234,4 @@ document.getElementById('viewSelect').addEventListener('change', (e) => {
 });
 
 // Initial render
-renderProjects('chronological');
+renderProjects('custom');

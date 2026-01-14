@@ -240,8 +240,9 @@ renderProjects('custom');
 // Chat Sidebar Functionality
 // ============================================
 
-// API key loaded from config.js (not committed to repo)
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${window.GEMINI_API_KEY || ''}`;
+// API key injected during build from GitHub secret
+const GEMINI_API_KEY = '__GEMINI_API_KEY__';
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
 let chatHistory = [];
 let isWaitingForResponse = false;
@@ -400,3 +401,13 @@ function sendSuggestion(btn) {
     input.value = btn.textContent;
     sendChatMessage();
 }
+
+// Open chat sidebar by default on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById('chatSidebar');
+    const toggleBtn = document.querySelector('.chat-toggle-btn');
+    if (sidebar && toggleBtn) {
+        sidebar.classList.add('open');
+        toggleBtn.classList.add('active');
+    }
+});

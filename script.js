@@ -136,7 +136,7 @@ const projects = [
         name: "Chess-Variant-AI",
         title: "Chess Variant AI",
         description: "Started as A-level project allowing users to create and play their own chess variants, since then have added a general AI that can play any user defined variant (custom heuristics, min-max with alpha-beta pruning)",
-        details: "The board is represented as an 8x8 2D array where each cell contains a piece object or null. Users can define custom pieces by specifying movement patterns as coordinate offsets (e.g., knight moves as [(-2,-1), (-2,1), ...])​. Custom piece values and board setups are configurable. The AI uses minimax search with alpha-beta pruning to efficiently explore the game tree. Position evaluation uses customizable heuristics based on material count, piece-square tables, and mobility. The system can play any user-defined variant without modification to the core AI logic.",
+        details: "Built using Object-Oriented Programming (OOP) principles with classes for Board, Piece, and Game. The board is represented as an 8x8 2D array where each cell contains a piece object or null. Users can define custom pieces by specifying movement patterns as coordinate offsets (e.g., knight moves as [(-2,-1), (-2,1), ...])​. Custom piece values and board setups are configurable. The AI uses minimax search with alpha-beta pruning to efficiently explore the game tree. Position evaluation uses customizable heuristics based on material count, piece-square tables, and mobility. The system can play any user-defined variant without modification to the core AI logic.",
         language: "Python",
         created: "2023-07-04",
         updated: "2025-06-29",

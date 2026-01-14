@@ -32,7 +32,7 @@ const projects = [
         language: "Python",
         created: "2024-02-01",
         updated: "2024-02-01",
-        url: "https://github.com/Ilube-C/Sentiment-of-main-characters-throughout-pride-and-prejudice/blob/main/NLP%20project.ipynb",
+        url: "https://github.com/Ilube-C/Sentiment-of-main-characters-throughout-pride-and-prejudice/blob/main/NLP%20project%20denoised.ipynb",
         topics: ["NLP", "Visualisation"],
         image: "images/Pride and Prejudice Sentiment.webp"
     },

@@ -240,8 +240,8 @@ renderProjects('custom');
 // Chat Sidebar Functionality
 // ============================================
 
-const GEMINI_API_KEY = 'AIzaSyAh2jD8RtPVypUHzai7pZfmJjWrQwb1ot4';
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+// API key loaded from config.js (not committed to repo)
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${window.GEMINI_API_KEY || ''}`;
 
 let chatHistory = [];
 let isWaitingForResponse = false;

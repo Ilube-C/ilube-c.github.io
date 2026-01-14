@@ -333,7 +333,7 @@ async function callGeminiAPI(userMessage) {
         // Try Vercel API first (has GitHub code access)
         const apiUrl = window.location.hostname.includes('vercel.app') || window.location.hostname === 'localhost'
             ? '/api/chat'
-            : 'https://ilube-c-portfolio.vercel.app/api/chat'; // Update this after Vercel deployment
+            : 'https://ilube-c-github-io.vercel.app/api/chat';
 
         const response = await fetch(apiUrl, {
             method: 'POST',

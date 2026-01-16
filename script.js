@@ -441,11 +441,14 @@ function sendSuggestion(btn) {
     sendChatMessage();
 }
 
-// Open chat sidebar by default on page load
+// Open chat sidebar by default on page load (desktop only)
 document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('chatSidebar');
     const toggleBtn = document.querySelector('.chat-toggle-btn');
-    if (sidebar && toggleBtn) {
+    const isMobile = window.innerWidth <= 768;
+
+    // Only auto-open chat on desktop
+    if (sidebar && toggleBtn && !isMobile) {
         sidebar.classList.add('open');
         toggleBtn.classList.add('active');
     }

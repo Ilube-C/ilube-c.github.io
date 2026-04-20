@@ -8,6 +8,12 @@ const projectRepos = {
     'sae': 'Can-SAEs-disentangle-superposed-features',
     'superposition': 'Can-SAEs-disentangle-superposed-features',
     'interpretability': 'Can-SAEs-disentangle-superposed-features',
+    'persona': 'persona_experiments',
+    'personality': 'persona_experiments',
+    'steering': 'persona_experiments',
+    'caa': 'persona_experiments',
+    'big five': 'persona_experiments',
+    'dark triad': 'persona_experiments',
     'pride and prejudice': 'Sentiment-of-main-characters-throughout-pride-and-prejudice',
     'nlp': 'Sentiment-of-main-characters-throughout-pride-and-prejudice',
     'sentiment': 'Sentiment-of-main-characters-throughout-pride-and-prejudice',
@@ -29,6 +35,13 @@ const projectRepos = {
     'game tree': 'Predicting-HLMI-with-GTC',
     'chess': 'Chess-Variant-AI',
     'chess variant': 'Chess-Variant-AI',
+    'realm wars': 'Realm-Wars',
+    'realm-wars': 'Realm-Wars',
+    'combat arena': 'Realm-Wars',
+    'coinsoft': 'coinsoft',
+    'coin': 'coinsoft',
+    'archaeological': 'coinsoft',
+    'numismatic': 'coinsoft',
 };
 
 // Detect which repo the question is about
@@ -62,12 +75,10 @@ async function fetchRepoFiles(repo) {
     }
 }
 
-// Fetch a specific file's content
-async function fetchFileContent(repo, path) {
+// Fetch a specific file's content from an absolute raw URL
+async function fetchFileContent(url) {
     try {
-        const response = await fetch(
-            `https://raw.githubusercontent.com/${GITHUB_USER}/${repo}/main/${path}`
-        );
+        const response = await fetch(url);
         if (!response.ok) return null;
         return await response.text();
     } catch (error) {
@@ -76,21 +87,21 @@ async function fetchFileContent(repo, path) {
     }
 }
 
-// Get main code files from a repo (Python files, notebooks)
+// Get main code files from a repo (Python files, notebooks, JS)
 async function getRepoCode(repo) {
     const files = await fetchRepoFiles(repo);
     if (!files.length) return null;
 
-    // Find Python files or Jupyter notebooks
     const codeFiles = files.filter(f =>
         f.name.endsWith('.py') ||
         f.name.endsWith('.ipynb') ||
+        f.name.endsWith('.js') ||
         f.name === 'README.md'
-    ).slice(0, 3); // Limit to 3 files to avoid token limits
+    ).slice(0, 3);
 
     const codeContents = [];
     for (const file of codeFiles) {
-        const content = await fetchFileContent(repo, file.name);
+        const content = await fetchFileContent(file.download_url);
         if (content) {
             // Truncate very long files
             const truncated = content.length > 8000
@@ -107,6 +118,7 @@ async function getRepoCode(repo) {
 const projectDetails = {
     'Cox-Ross-Rubenstein-options-pricing-model': 'Uses the Cox-Ross-Rubinstein (CRR) binomial tree model to price European and American options. Python/Jupyter.',
     'Can-SAEs-disentangle-superposed-features': 'Investigates Sparse Autoencoders (SAEs) as a mechanistic interpretability tool following Anthropic\'s research.',
+    'persona_experiments': 'CAA steering vectors injected into TinyLlama to shift personality, measured via Big Five and Dark Triad test batteries. Python.',
     'Sentiment-of-main-characters-throughout-pride-and-prejudice': 'NLP project applying Named Entity Recognition (NER) to track sentiment evolution of characters in Pride and Prejudice.',
     'ESGD': 'Implements the ESGD algorithm from NeurIPS research combining evolutionary strategies with SGD. Jupyter notebook tutorial.',
     'Student-grades-data-project': 'Statistics project analyzing student grade distributions to evaluate different grading strategies.',
@@ -117,6 +129,8 @@ const projectDetails = {
     'Sentiment-Analysis-Visualisation': 'Interactive visualization tool for exploring sentiment trends in music lyrics over time.',
     'Predicting-HLMI-with-GTC': 'Analyzes AI progress at games (using Game Tree Complexity) to predict Human Level Machine Intelligence.',
     'Chess-Variant-AI': 'A-level project: Chess variant creator with AI using minimax/alpha-beta pruning. Built with OOP (Board, Piece, Game classes).',
+    'Realm-Wars': 'Turn-based 4v4 combat game in vanilla JavaScript with 12 classes and a stance system, balanced via move-variance simulation scripts.',
+    'coinsoft': 'Archaeological coin database with 500+ searchable records from the PAS, mobile Log Find via GPS/camera, and a Python HTTP server.',
 };
 
 // Call Gemini API

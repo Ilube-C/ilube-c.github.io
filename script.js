@@ -1,6 +1,42 @@
 // Repository data from GitHub
 const projects = [
     {
+        name: "persona_experiments",
+        title: "Persona Experiments: Steering LLM Personality",
+        description: "Injecting Contrastive Activation Addition (CAA) steering vectors into small LLMs to measure personality shifts on Big Five and Dark Triad test batteries.",
+        details: "Extracts steering vectors from contrastive prompt pairs across 8 traits (Big Five + Dark Triad), then injects them at specified transformer layers via forward hooks to shift the model's apparent personality. Runs a 5-trait × 5-layer × 7-scale grid sweep on TinyLlama, producing heatmaps of trait response and identifying the best injection layer per trait via linear dose-response slope × R². Uses Likert self-report and scenario-based tests, with geometry analysis (RSA, CKA, CCA, Procrustes). Built as 8 narrative walkthrough notebooks plus a reproducible experiments package.",
+        language: "Python",
+        created: "2026-04-13",
+        updated: "2026-04-14",
+        url: "https://github.com/Ilube-C/persona_experiments",
+        topics: ["ML", "AI", "Visualisation"],
+        image: "images/persona_experiments.png"
+    },
+    {
+        name: "Realm-Wars",
+        title: "Realm Wars",
+        description: "4v4 team-based fantasy combat arena game with 12 classes, 3 damage types, and variance-balanced moves tuned via simulation.",
+        details: "Turn-based 4v4 combat game built in vanilla JavaScript. 12 classes, a stance system (two stances per class, each granting stat boosts and a passive ability), and a damage formula that combines a fixed base with dice variance scaled by attacker/defender stats — tooltips expose the per-move σ so players can weigh swingy vs reliable options. Balance was tuned via ~30 simulation scripts (matchups, class-specific sims, combo analysis, smart-AI-vs-player) to stabilise variance and flag dominant strategies. Includes a smart AI opponent and an in-game tutorial.",
+        language: "JavaScript",
+        created: "2026-02-26",
+        updated: "2026-03-02",
+        url: "https://github.com/Ilube-C/Realm-Wars",
+        topics: ["Games", "AI"],
+        image: "images/realm_wars.png"
+    },
+    {
+        name: "coinsoft",
+        title: "CoinSoft: Archaeological Coin Database",
+        description: "Searchable, mobile-friendly database for identifying coins found at archaeological dig sites — 500+ records imported from the PAS.",
+        details: "Two-layer data model separating coin types (reference records) from finds (contextual observations at a dig site). Vanilla HTML/CSS/JS frontend with search across name, ruler, period, material and inscriptions, plus filters on period and material. Mobile 'Log Find' feature captures camera images, text fields, and GPS coordinates and posts to a Python HTTP server endpoint. Includes a map view for find locations, a statistics view with column averages, and 514 coin records imported from the Portable Antiquities Scheme (PAS).",
+        language: "JavaScript",
+        created: "2026-02-22",
+        updated: "2026-03-01",
+        url: "https://github.com/Ilube-C/coinsoft",
+        topics: ["Web", "Visualisation"],
+        image: "images/coinsoft.png"
+    },
+    {
         name: "Options-Pricing-Model",
         title: "Options Pricing Model",
         description: "Implementation of a binomial tree model for options pricing, visualising option values across different steps and moves.",
@@ -194,7 +230,7 @@ function renderProjects(viewType) {
         html = '<div class="projects-grid">' + projects.map(createProjectCard).join('') + '</div>';
     }
     else if (viewType === 'topics') {
-        const topicOrder = ['NLP', 'ML', 'AI', 'Visualisation', 'Consulting'];
+        const topicOrder = ['NLP', 'ML', 'AI', 'Visualisation', 'Games', 'Web', 'Consulting'];
         const groups = groupByTopics(projects);
         topicOrder.forEach(topic => {
             if (groups[topic]) {
@@ -213,6 +249,7 @@ function renderProjects(viewType) {
         const customOrder = [
             'Options-Pricing-Model',
             'Can-SAEs-disentangle-superposed-features',
+            'persona_experiments',
             'Pride-and-Prejudice-NLP',
             'ESGD',
             'Student-grades-data-project',

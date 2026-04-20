@@ -35,9 +35,6 @@ const projectRepos = {
     'game tree': 'Predicting-HLMI-with-GTC',
     'chess': 'Chess-Variant-AI',
     'chess variant': 'Chess-Variant-AI',
-    'realm wars': 'Realm-Wars',
-    'realm-wars': 'Realm-Wars',
-    'combat arena': 'Realm-Wars',
     'coinsoft': 'coinsoft',
     'coin': 'coinsoft',
     'archaeological': 'coinsoft',
@@ -129,7 +126,6 @@ const projectDetails = {
     'Sentiment-Analysis-Visualisation': 'Interactive visualization tool for exploring sentiment trends in music lyrics over time.',
     'Predicting-HLMI-with-GTC': 'Analyzes AI progress at games (using Game Tree Complexity) to predict Human Level Machine Intelligence.',
     'Chess-Variant-AI': 'A-level project: Chess variant creator with AI using minimax/alpha-beta pruning. Built with OOP (Board, Piece, Game classes).',
-    'Realm-Wars': 'Turn-based 4v4 combat game in vanilla JavaScript with 12 classes and a stance system, balanced via move-variance simulation scripts.',
     'coinsoft': 'Archaeological coin database with 500+ searchable records from the PAS, mobile Log Find via GPS/camera, and a Python HTTP server.',
 };
 

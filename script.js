@@ -13,18 +13,6 @@ const projects = [
         image: "images/persona_experiments.png"
     },
     {
-        name: "Realm-Wars",
-        title: "Realm Wars",
-        description: "4v4 team-based fantasy combat arena game with 12 classes, 3 damage types, and variance-balanced moves tuned via simulation.",
-        details: "Turn-based 4v4 combat game built in vanilla JavaScript. 12 classes, a stance system (two stances per class, each granting stat boosts and a passive ability), and a damage formula that combines a fixed base with dice variance scaled by attacker/defender stats — tooltips expose the per-move σ so players can weigh swingy vs reliable options. Balance was tuned via ~30 simulation scripts (matchups, class-specific sims, combo analysis, smart-AI-vs-player) to stabilise variance and flag dominant strategies. Includes a smart AI opponent and an in-game tutorial.",
-        language: "JavaScript",
-        created: "2026-02-26",
-        updated: "2026-03-02",
-        url: "https://github.com/Ilube-C/Realm-Wars",
-        topics: ["Games", "AI"],
-        image: "images/realm_wars.png"
-    },
-    {
         name: "coinsoft",
         title: "CoinSoft: Archaeological Coin Database",
         description: "Searchable, mobile-friendly database for identifying coins found at archaeological dig sites — 500+ records imported from the PAS.",
@@ -230,7 +218,7 @@ function renderProjects(viewType) {
         html = '<div class="projects-grid">' + projects.map(createProjectCard).join('') + '</div>';
     }
     else if (viewType === 'topics') {
-        const topicOrder = ['NLP', 'ML', 'AI', 'Visualisation', 'Games', 'Web', 'Consulting'];
+        const topicOrder = ['NLP', 'ML', 'AI', 'Visualisation', 'Web', 'Consulting'];
         const groups = groupByTopics(projects);
         topicOrder.forEach(topic => {
             if (groups[topic]) {

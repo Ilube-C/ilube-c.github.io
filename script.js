@@ -215,7 +215,8 @@ function renderProjects(viewType) {
     let html = '';
 
     if (viewType === 'chronological') {
-        html = '<div class="projects-grid">' + projects.map(createProjectCard).join('') + '</div>';
+        const sorted = [...projects].sort((a, b) => new Date(b.updated) - new Date(a.updated));
+        html = '<div class="projects-grid">' + sorted.map(createProjectCard).join('') + '</div>';
     }
     else if (viewType === 'topics') {
         const topicOrder = ['NLP', 'ML', 'AI', 'Visualisation', 'Web', 'Consulting'];
@@ -235,12 +236,13 @@ function renderProjects(viewType) {
     }
     else if (viewType === 'custom') {
         const customOrder = [
-            'Options-Pricing-Model',
             'Can-SAEs-disentangle-superposed-features',
+            'coinsoft',
             'persona_experiments',
-            'Pride-and-Prejudice-NLP',
+            'Options-Pricing-Model',
+            'Model-Complexity-Class-Imbalance',
             'ESGD',
-            'Student-grades-data-project',
+            'Pride-and-Prejudice-NLP',
             'Chess-Variant-AI'
         ];
         const priorityProjects = customOrder

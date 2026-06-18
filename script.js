@@ -237,14 +237,13 @@ function renderProjects(viewType) {
     else if (viewType === 'custom') {
         const customOrder = [
             'Options-Pricing-Model',
-            'persona_experiments',
             'Can-SAEs-disentangle-superposed-features',
+            'Pride-and-Prejudice-NLP',
             'ESGD',
             'Model-Complexity-Class-Imbalance',
-            'Predicting-HLMI-with-GTC',
-            'Pride-and-Prejudice-NLP',
-            'Chess-Variant-AI',
-            'coinsoft'
+            'persona_experiments',
+            'coinsoft',
+            'Chess-Variant-AI'
         ];
         const priorityProjects = customOrder
             .map(name => projects.find(p => p.name === name))

@@ -10,7 +10,7 @@ const projects = [
         updated: "2026-06-22",
         url: "https://github.com/Ilube-C/netzero-map-agent",
         topics: ["AI", "Web", "Visualisation"],
-        image: "🗺️"
+        image: "images/netzero-map-agent.png"
     },
     {
         name: "persona_experiments",

@@ -1,6 +1,18 @@
 // Repository data from GitHub
 const projects = [
     {
+        name: "netzero-map-agent",
+        title: "NetZero Map Agent: Geospatial LLM Agent",
+        description: "Conversational AI agent that answers natural-language questions about UK renewable-energy projects over an interactive map, routing tool calls to a PostGIS spatial database.",
+        details: "A full-stack agentic system: a FastAPI backend runs a tool-use loop that routes the LLM's calls either to browser-side map commands (fly-to, layer toggles via MapLibre GL JS) or to server-side PostGIS spatial queries (radius search, K-nearest-neighbour, footprint rendering) over a gazetteer plus REPD renewable-energy project dataset. Coordinates never reach the LLM — the model reasons over named tools and the database returns geometry directly — which keeps it reliable on smaller/cheaper models. Provider-swappable across Groq, Gemini, Ollama and Anthropic; served over a websocket and containerised end-to-end with Docker Compose so the spatial DB auto-loads on first boot.",
+        language: "Python",
+        created: "2026-06-22",
+        updated: "2026-06-22",
+        url: "https://github.com/Ilube-C/netzero-map-agent",
+        topics: ["AI", "Web", "Visualisation"],
+        image: "🗺️"
+    },
+    {
         name: "persona_experiments",
         title: "Persona Experiments: Steering LLM Personality",
         description: "Injecting Contrastive Activation Addition (CAA) steering vectors into small LLMs to measure personality shifts on Big Five and Dark Triad test batteries.",
@@ -236,6 +248,7 @@ function renderProjects(viewType) {
     }
     else if (viewType === 'custom') {
         const customOrder = [
+            'netzero-map-agent',
             'Options-Pricing-Model',
             'Can-SAEs-disentangle-superposed-features',
             'Pride-and-Prejudice-NLP',

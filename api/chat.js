@@ -84,8 +84,11 @@ async function getRepoCode(repo) {
 // The project list handed to the model is built from the same projects.json
 // the site renders, so a newly added tile is automatically something the bot
 // knows about. Previously this was a second hardcoded list that drifted.
+// Topics are included in square brackets: without them the model inferred
+// categories from prose and got them wrong - reading "Chess Variant AI" and
+// "AI progress at games" as machine learning, while missing ESGD entirely.
 const projectList = projects
-    .map(p => `- ${p.title}: ${p.description}${p.details ? ' ' + p.details : ''}`)
+    .map(p => `- ${p.title} [${p.topics.join(', ')}]: ${p.description}${p.details ? ' ' + p.details : ''}`)
     .join('\n');
 
 // Call Gemini API
@@ -166,6 +169,8 @@ export default async function handler(req, res) {
 IMPORTANT: Only discuss the following projects that are actually in this portfolio. Do not make up or reference any other projects:
 
 ${projectList}
+
+The tags in square brackets are the author's own categorisation and are authoritative. When asked which projects fall into a category or use a particular technique, go by these tags rather than inferring from the descriptions, and list every project carrying the tag. "AI" and "ML" are separate tags and are not interchangeable: classical search methods such as minimax, and analyses of AI progress, are tagged AI and do not use machine learning.
 
 When answering questions about code implementation, refer to the actual code provided when available. Explain the code clearly and highlight interesting implementation details.
 

@@ -1,52 +1,22 @@
 // Vercel Serverless Function - Chat API with GitHub Code Access
 
+import projects from '../projects.json' with { type: 'json' };
+
 const GITHUB_USER = 'Ilube-C';
 
-// Project metadata with repo mappings
-const projectRepos = {
-    'options pricing': 'Cox-Ross-Rubenstein-options-pricing-model',
-    'sae': 'Can-SAEs-disentangle-superposed-features',
-    'superposition': 'Can-SAEs-disentangle-superposed-features',
-    'interpretability': 'Can-SAEs-disentangle-superposed-features',
-    'persona': 'persona_experiments',
-    'personality': 'persona_experiments',
-    'steering': 'persona_experiments',
-    'caa': 'persona_experiments',
-    'big five': 'persona_experiments',
-    'dark triad': 'persona_experiments',
-    'pride and prejudice': 'Sentiment-of-main-characters-throughout-pride-and-prejudice',
-    'nlp': 'Sentiment-of-main-characters-throughout-pride-and-prejudice',
-    'sentiment': 'Sentiment-of-main-characters-throughout-pride-and-prejudice',
-    'esgd': 'ESGD',
-    'gradient descent': 'ESGD',
-    'student grades': 'Student-grades-data-project',
-    'grading': 'Student-grades-data-project',
-    'class imbalance': 'Model-Complexity-Class-Imbalance',
-    'model complexity': 'Model-Complexity-Class-Imbalance',
-    'latin': 'The-Latin-Programme-Consultancy-project',
-    'latin programme': 'The-Latin-Programme-Consultancy-project',
-    'london strategic': 'London-Strategic-Consulting',
-    'consulting': 'London-Strategic-Consulting',
-    'roman senate': 'Decline-of-the-Roman-Senate-with-NLP',
-    'senate': 'Decline-of-the-Roman-Senate-with-NLP',
-    'sentiment visualisation': 'Sentiment-Analysis-Visualisation',
-    'music lyrics': 'Sentiment-Analysis-Visualisation',
-    'hlmi': 'Predicting-HLMI-with-GTC',
-    'game tree': 'Predicting-HLMI-with-GTC',
-    'chess': 'Chess-Variant-AI',
-    'chess variant': 'Chess-Variant-AI',
-    'coinsoft': 'coinsoft',
-    'coin': 'coinsoft',
-    'archaeological': 'coinsoft',
-    'numismatic': 'coinsoft',
-};
+// The repo name is derived from each project's GitHub URL rather than stored
+// separately, so it cannot drift out of sync with the link the site renders.
+function repoFor(project) {
+    const match = project.url.match(/github\.com\/[^/]+\/([^/]+)/);
+    return match ? match[1] : null;
+}
 
-// Detect which repo the question is about
+// Detect which repo the question is about, using the keywords in projects.json
 function detectRepo(message) {
     const lowerMessage = message.toLowerCase();
-    for (const [keyword, repo] of Object.entries(projectRepos)) {
-        if (lowerMessage.includes(keyword)) {
-            return repo;
+    for (const project of projects) {
+        if ((project.keywords || []).some(kw => lowerMessage.includes(kw))) {
+            return repoFor(project);
         }
     }
     return null;
@@ -111,23 +81,12 @@ async function getRepoCode(repo) {
     return codeContents.length > 0 ? codeContents.join('\n') : null;
 }
 
-// Project details (same as frontend)
-const projectDetails = {
-    'Cox-Ross-Rubenstein-options-pricing-model': 'Uses the Cox-Ross-Rubinstein (CRR) binomial tree model to price European and American options. Python/Jupyter.',
-    'Can-SAEs-disentangle-superposed-features': 'Investigates Sparse Autoencoders (SAEs) as a mechanistic interpretability tool following Anthropic\'s research.',
-    'persona_experiments': 'CAA steering vectors injected into TinyLlama to shift personality, measured via Big Five and Dark Triad test batteries. Python.',
-    'Sentiment-of-main-characters-throughout-pride-and-prejudice': 'NLP project applying Named Entity Recognition (NER) to track sentiment evolution of characters in Pride and Prejudice.',
-    'ESGD': 'Implements the ESGD algorithm from NeurIPS research combining evolutionary strategies with SGD. Jupyter notebook tutorial.',
-    'Student-grades-data-project': 'Statistics project analyzing student grade distributions to evaluate different grading strategies.',
-    'Model-Complexity-Class-Imbalance': 'Studies how different classification architectures (Covariance, LogReg, MLP) handle class imbalance.',
-    'The-Latin-Programme-Consultancy-project': 'Consultancy project analyzing whether Latin instruction improves academic outcomes.',
-    'London-Strategic-Consulting': 'Consulting engagement analyzing content creator economics and profitability.',
-    'Decline-of-the-Roman-Senate-with-NLP': 'Applies NLP to ancient Roman texts to quantify Senate\'s declining influence under Augustus.',
-    'Sentiment-Analysis-Visualisation': 'Interactive visualization tool for exploring sentiment trends in music lyrics over time.',
-    'Predicting-HLMI-with-GTC': 'Analyzes AI progress at games (using Game Tree Complexity) to predict Human Level Machine Intelligence.',
-    'Chess-Variant-AI': 'A-level project: Chess variant creator with AI using minimax/alpha-beta pruning. Built with OOP (Board, Piece, Game classes).',
-    'coinsoft': 'Archaeological coin database with 500+ searchable records from the PAS, mobile Log Find via GPS/camera, and a Python HTTP server.',
-};
+// The project list handed to the model is built from the same projects.json
+// the site renders, so a newly added tile is automatically something the bot
+// knows about. Previously this was a second hardcoded list that drifted.
+const projectList = projects
+    .map(p => `- ${p.title}: ${p.description}${p.details ? ' ' + p.details : ''}`)
+    .join('\n');
 
 // Call Gemini API
 async function callGemini(prompt, apiKey) {
@@ -201,12 +160,7 @@ export default async function handler(req, res) {
             }
         }
 
-        // Build project list for context
-        const projectList = Object.entries(projectDetails)
-            .map(([name, desc]) => `- ${name}: ${desc}`)
-            .join('\n');
-
-        // Build the prompt
+        // Build the prompt (projectList is derived from projects.json above)
         const systemPrompt = `You are a helpful assistant on Ilube-C's portfolio website. You help visitors learn about the projects showcased here. Be concise, friendly, and informative.
 
 IMPORTANT: Only discuss the following projects that are actually in this portfolio. Do not make up or reference any other projects:

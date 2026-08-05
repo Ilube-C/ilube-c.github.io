@@ -281,25 +281,11 @@ renderProjects('custom');
 // Chat Sidebar Functionality
 // ============================================
 
-// API key injected during build from GitHub secret
-const GEMINI_API_KEY = '__GEMINI_API_KEY__';
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${GEMINI_API_KEY}`;
+// The Gemini API key is held server-side by the Vercel function
+// (process.env.GEMINI_API_KEY) and is deliberately never shipped to the browser.
 
 let chatHistory = [];
 let isWaitingForResponse = false;
-
-// Generate system prompt with project context
-function getSystemPrompt() {
-    const projectSummaries = projects.map(p =>
-        `- "${p.title}": ${p.description}${p.details ? `\n  Implementation: ${p.details}` : ''}\n  (Topics: ${p.topics.join(', ')}, Language: ${p.language})`
-    ).join('\n\n');
-
-    return `You are a helpful assistant on Ilube-C's portfolio website. You help visitors learn about the projects showcased here. Be concise, friendly, and informative. Here are the projects in this portfolio:
-
-${projectSummaries}
-
-Answer questions about these projects based on the information provided. You can discuss implementation details, technologies used, and methodologies. If asked about something not related to these projects, politely redirect the conversation back to the portfolio. Keep responses brief and focused.`;
-}
 
 // Toggle chat sidebar
 function toggleChat() {
@@ -383,52 +369,15 @@ async function callGeminiAPI(userMessage) {
             return assistantMessage;
         }
 
-        // Fall back to direct Gemini API if Vercel API fails
-        console.log('Vercel API unavailable, falling back to direct Gemini API');
-        return await callGeminiDirectly(userMessage);
+        // No browser-side fallback by design: a fallback would require the API
+        // key in client code, where anyone can read it out of script.js.
+        console.error(`Chat API returned ${response.status}`);
+        chatHistory.pop(); // drop the unanswered user turn
+        return 'Sorry, the chat service is unavailable right now. Please try again shortly.';
 
     } catch (error) {
         console.error('Chat API error:', error);
-        // Fall back to direct Gemini API
-        return await callGeminiDirectly(userMessage);
-    }
-}
-
-// Direct Gemini API call (fallback)
-async function callGeminiDirectly(userMessage) {
-    const conversationContext = chatHistory.map(msg =>
-        `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`
-    ).join('\n');
-
-    const fullPrompt = `${getSystemPrompt()}\n\nConversation so far:\n${conversationContext}\n\nRespond to the user's last message concisely:`;
-
-    try {
-        const response = await fetch(GEMINI_API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                contents: [{
-                    parts: [{
-                        text: fullPrompt
-                    }]
-                }]
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error(`API error: ${response.status}`);
-        }
-
-        const data = await response.json();
-        const assistantMessage = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Sorry, I could not generate a response.';
-
-        chatHistory.push({ role: 'assistant', content: assistantMessage });
-        return assistantMessage;
-
-    } catch (error) {
-        console.error('Gemini API error:', error);
+        chatHistory.pop(); // drop the unanswered user turn
         return 'Sorry, there was an error connecting to the chat service. Please try again.';
     }
 }

@@ -21,10 +21,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Inject API key into script.js
-        run: |
-          sed -i "s/__GEMINI_API_KEY__/${{ secrets.GEMINI_API_KEY }}/g" script.js
-
       - name: Setup Pages
         uses: actions/configure-pages@v4
 

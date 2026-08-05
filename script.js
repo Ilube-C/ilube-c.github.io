@@ -52,7 +52,9 @@ function renderProjects(viewType) {
         html = '<div class="projects-grid">' + sorted.map(createProjectCard).join('') + '</div>';
     }
     else if (viewType === 'topics') {
-        const topicOrder = ['NLP', 'ML', 'AI', 'Visualisation', 'Web', 'Consulting'];
+        // Any topic missing from this list renders nowhere - keep it in sync
+        // with the topics used in projects.json.
+        const topicOrder = ['ML', 'AI', 'NLP', 'Statistics', 'Finance', 'Visualisation', 'Web', 'Consulting'];
         const groups = groupByTopics(projects);
         topicOrder.forEach(topic => {
             if (groups[topic]) {

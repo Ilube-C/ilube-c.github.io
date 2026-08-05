@@ -79,12 +79,13 @@
     "updated": "2026-01-13",
     "url": "https://github.com/Ilube-C/Cox-Ross-Rubenstein-options-pricing-model/blob/main/Cox_Ross_Rubinstein.ipynb",
     "topics": [
-      "ML",
+      "Finance",
       "Visualisation"
     ],
     "image": "images/options_pricing.png",
     "keywords": [
       "options pricing",
+      "option pricing",
       "binomial",
       "cox-ross"
     ]
@@ -100,11 +101,13 @@
     "url": "https://github.com/Ilube-C/Can-SAEs-disentangle-superposed-features",
     "topics": [
       "ML",
+      "AI",
       "Visualisation"
     ],
     "image": "images/3d_geometry_8_3_8_s0.86_uniform.png",
     "keywords": [
       "sae",
+      "sparse autoencoder",
       "superposition",
       "interpretability"
     ]
@@ -125,8 +128,9 @@
     "image": "images/Pride and Prejudice Sentiment.webp",
     "keywords": [
       "pride and prejudice",
-      "nlp",
-      "sentiment"
+      "austen",
+      "darcy",
+      "named entity"
     ]
   },
   {
@@ -157,6 +161,7 @@
     "updated": "2023-11-08",
     "url": "https://github.com/Ilube-C/Student-grades-data-project/blob/main/Stats%20student%20grades%20project.ipynb",
     "topics": [
+      "Statistics",
       "Visualisation"
     ],
     "image": "images/Student grades data 3d.webp",
@@ -193,7 +198,8 @@
     "updated": "2023-09-22",
     "url": "https://github.com/Ilube-C/The-Latin-Programme-Consultancy-project",
     "topics": [
-      "Consulting"
+      "Consulting",
+      "Statistics"
     ],
     "image": "images/Boxplot regression Latin programme.webp",
     "keywords": [
@@ -211,12 +217,14 @@
     "updated": "2023-11-12",
     "url": "https://github.com/Ilube-C/London-Strategic-Consulting",
     "topics": [
-      "Consulting"
+      "Consulting",
+      "Finance"
     ],
     "image": "https://raw.githubusercontent.com/Ilube-C/London-Strategic-Consulting/main/Graphs/Figure.png",
     "keywords": [
       "london strategic",
-      "consulting"
+      "content creator",
+      "creator econom"
     ]
   },
   {
@@ -253,7 +261,8 @@
     "image": "images/sentiment viz.webp",
     "keywords": [
       "sentiment visualisation",
-      "music lyrics"
+      "music lyrics",
+      "lyrics"
     ]
   },
   {

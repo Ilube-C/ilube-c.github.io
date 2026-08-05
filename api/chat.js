@@ -140,7 +140,11 @@ async function callGemini(prompt, apiKey) {
                 contents: [{ parts: [{ text: prompt }] }],
                 generationConfig: {
                     temperature: 0.7,
-                    maxOutputTokens: 1024,
+                    // Thinking tokens are drawn from maxOutputTokens. At the old
+                    // 1024 cap, reasoning consumed the whole budget and answers
+                    // were cut off mid-word (finishReason: MAX_TOKENS).
+                    maxOutputTokens: 4096,
+                    thinkingConfig: { thinkingLevel: 'low' },
                 }
             })
         }

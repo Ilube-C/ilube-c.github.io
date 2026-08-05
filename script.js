@@ -298,6 +298,45 @@ function toggleChat() {
     backdrop.classList.toggle('visible');
 }
 
+// Render the small subset of Markdown that Gemini actually emits.
+//
+// HTML is escaped BEFORE any tags are introduced, so markup in the model's
+// reply is inert and this cannot become an XSS vector. Only the tags built
+// below can ever reach the DOM - do not reorder these steps.
+function renderMarkdown(text) {
+    const escapeHtml = str => str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+
+    // Bold before italic, so ** isn't consumed by the single-* rule.
+    const inline = str => escapeHtml(str)
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, '$1<em>$2</em>');
+
+    const blocks = [];
+    let listItems = null;
+
+    for (const line of text.split('\n')) {
+        const bullet = line.match(/^\s*[*-]\s+(.*)$/);
+        if (bullet) {
+            // Bullets are matched per-line before italics, so a leading "* "
+            // reads as a list marker rather than an unclosed emphasis.
+            (listItems = listItems || []).push(`<li>${inline(bullet[1])}</li>`);
+            continue;
+        }
+        if (listItems) {
+            blocks.push(`<ul>${listItems.join('')}</ul>`);
+            listItems = null;
+        }
+        if (line.trim()) blocks.push(`<p>${inline(line)}</p>`);
+    }
+    if (listItems) blocks.push(`<ul>${listItems.join('')}</ul>`);
+
+    return blocks.join('');
+}
+
 // Add message to chat
 function addMessage(text, isUser) {
     const messagesContainer = document.getElementById('chatMessages');
@@ -310,7 +349,12 @@ function addMessage(text, isUser) {
 
     const messageDiv = document.createElement('div');
     messageDiv.className = `chat-message ${isUser ? 'user' : 'assistant'}`;
-    messageDiv.textContent = text;
+    // Visitor input is never rendered as markup - only model replies are.
+    if (isUser) {
+        messageDiv.textContent = text;
+    } else {
+        messageDiv.innerHTML = renderMarkdown(text);
+    }
 
     messagesContainer.appendChild(messageDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;

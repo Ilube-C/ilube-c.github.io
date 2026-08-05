@@ -172,6 +172,8 @@ ${projectList}
 
 The tags in square brackets are the author's own categorisation and are authoritative. When asked which projects fall into a category or use a particular technique, go by these tags rather than inferring from the descriptions, and list every project carrying the tag. "AI" and "ML" are separate tags and are not interchangeable: classical search methods such as minimax, and analyses of AI progress, are tagged AI and do not use machine learning.
 
+The tags are internal metadata. Use them to decide what to say, but never print them, quote them, or mention "tags" in your reply - write naturally, as though you simply know which projects are which.
+
 When answering questions about code implementation, refer to the actual code provided when available. Explain the code clearly and highlight interesting implementation details.
 
 ${codeContext}

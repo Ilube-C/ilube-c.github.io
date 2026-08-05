@@ -100,7 +100,7 @@ document.getElementById('viewSelect').addEventListener('change', (e) => {
 // Load the shared project data, then do the initial render.
 async function init() {
     try {
-        const response = await fetch('projects.json?v=39');
+        const response = await fetch('projects.json?v=40');
         if (!response.ok) throw new Error(`HTTP ${response.status}`);
         projects = await response.json();
     } catch (error) {
